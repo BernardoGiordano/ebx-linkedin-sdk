@@ -55,5 +55,15 @@ public class ImageV2Elements {
     @Setter
     @LinkedIn
     private String identifier;
+
+    @Getter
+    @Setter
+    @LinkedIn
+    private String mediaType;
+
+    @Getter
+    @Setter
+    @LinkedIn
+    private String identifierType;
   }
 }
