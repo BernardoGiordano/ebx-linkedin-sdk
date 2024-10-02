@@ -74,6 +74,40 @@ public class VideoConnection extends Connection {
   public VideoConnection(LinkedInClient linkedinClient) {
     super(linkedinClient);
   }
+
+    public URN uploadVideo(InitializeUploadRequest initializeUploadRequest, String filePath)
+    throws IOException {
+
+    Path videoFilePath = Paths.get(filePath);
+    long fileSizeBytes = Files.size(videoFilePath);
+
+    initializeUploadRequest.getInitializeUploadRequest().setFileSizeBytes(fileSizeBytes);
+    InitializeUploadResponse initializeUploadResponse = initializeUpload(initializeUploadRequest);
+    InitializeUploadResponse.Value value = initializeUploadResponse.getValue();
+
+    List<String> uploadedPartIds = uploadVideoFile(filePath, value.getUploadInstructions());
+
+    FinalizeUploadRequest finalizeUploadRequest =
+      new FinalizeUploadRequest(value.getVideo(), value.getUploadToken(), uploadedPartIds);
+    finalizeUpload(finalizeUploadRequest);
+
+    return value.getVideo();
+  }
+
+  public List<String> uploadVideoFile(String filePath,
+                                      List<InitializeUploadResponse.UploadInstruction> uploadInstructions) throws IOException {
+
+    File file = new File(filePath);
+    byte[] fileBytes = UploadHelper.convertFileToBytes(file);
+
+    List<String> uploadPartIds = new ArrayList<>();
+    for (InitializeUploadResponse.UploadInstruction instruction : uploadInstructions) {
+      String etag = uploadVideoFileChunk(filePath, fileBytes, instruction);
+      uploadPartIds.add(etag);
+    }
+
+    return uploadPartIds;
+  }
   
   public URN uploadVideoFromURL(InitializeUploadRequest initializeUploadRequest, String videoURL,
       String thumbnailImageURL) throws IOException {
