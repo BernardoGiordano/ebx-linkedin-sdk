@@ -231,3 +231,14 @@ can get data for both organization and organization brand pages.
 * Some backwards incompatible changes introduced such as return type of `getCurrentHeaders` and 
 parameter type of `customizeConnection`
 * Updated contributing notes to reference CircleCI
+
+## 8.0.1 (November 28, 2024)
+* Update the default API version to 202411.
+* Update a number of dependencies, including org.apache.commons:commons-lang3 to 3.17.0.
+
+## 8.0.2 (December 11, 2024)
+* Revert back to using Google HTTP client for HTTP requests (after encountering issues with 
+  LinkedIn reconnections)
+
+## 8.1.0 (August 27, 2025)
+* Add support for LinkedIn's People Typeahead API to search for an organization's followers.
