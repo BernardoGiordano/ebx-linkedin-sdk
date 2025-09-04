@@ -75,7 +75,7 @@ public class VideoConnection extends Connection {
     super(linkedinClient);
   }
 
-    public URN uploadVideo(InitializeUploadRequest initializeUploadRequest, String filePath)
+  public URN uploadVideo(InitializeUploadRequest initializeUploadRequest, String filePath)
     throws IOException {
 
     Path videoFilePath = Paths.get(filePath);
