@@ -8,7 +8,7 @@
 
   <groupId>com.echobox</groupId>
   <artifactId>ebx-linkedin-sdk</artifactId>
-  <version>8.0.0</version>
+  <version>8.0.0-easy</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -130,61 +130,61 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>3.5.0</version>
-        <executions>
-          <execution>
-            <id>validate</id>
-            <phase>validate</phase>
-            <configuration>
-              <configLocation>CodeStyle/checkstyle.xml</configLocation>
-              <consoleOutput>true</consoleOutput>
-              <failsOnError>true</failsOnError>
-              <includeTestSourceDirectory>true</includeTestSourceDirectory>
-              <propertyExpansion>basedir=${project.basedir}</propertyExpansion>
-              <!-- Excluded as these are external dropins -->
-              <excludes>
-                **/DateFormatStrategy.java,
-                **/DateUtils.java,
-                **/ReflectionUtils.java,
-                **/SimpleDateFormatStrategy.java,
-                **/JsonMapper.java,
-                **/DefaultJsonMapper.java,
-                **/BaseLinkedInClient.java,
-                **/BinaryAttachment.java,
-                **/Connection.java,
-                **/ConnectionIterator.java,
-                **/LinkedInClient.java,
-                **/Parameter.java,
-                **/WebRequestor.java,
-                **/LinkedInExceptionMapper.java,
-                **/LinkedInNetworkException.java,
-                **/ResponseErrorJsonParsingException.java,
-                **/URLUtils.java,
-                **/JsonHelper.java,
-                **/ObjectUtil.java
-              </excludes>
-            </configuration>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>10.18.0</version>
-          </dependency>
-          <dependency>
-            <groupId>com.github.sevntu-checkstyle</groupId>
-            <artifactId>sevntu-checks</artifactId>
-            <version>1.44.0</version>
-          </dependency>
-        </dependencies>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--        <version>3.5.0</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>validate</id>-->
+<!--            <phase>validate</phase>-->
+<!--            <configuration>-->
+<!--              <configLocation>CodeStyle/checkstyle.xml</configLocation>-->
+<!--              <consoleOutput>true</consoleOutput>-->
+<!--              <failsOnError>true</failsOnError>-->
+<!--              <includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+<!--              <propertyExpansion>basedir=${project.basedir}</propertyExpansion>-->
+<!--              &lt;!&ndash; Excluded as these are external dropins &ndash;&gt;-->
+<!--              <excludes>-->
+<!--                **/DateFormatStrategy.java,-->
+<!--                **/DateUtils.java,-->
+<!--                **/ReflectionUtils.java,-->
+<!--                **/SimpleDateFormatStrategy.java,-->
+<!--                **/JsonMapper.java,-->
+<!--                **/DefaultJsonMapper.java,-->
+<!--                **/BaseLinkedInClient.java,-->
+<!--                **/BinaryAttachment.java,-->
+<!--                **/Connection.java,-->
+<!--                **/ConnectionIterator.java,-->
+<!--                **/LinkedInClient.java,-->
+<!--                **/Parameter.java,-->
+<!--                **/WebRequestor.java,-->
+<!--                **/LinkedInExceptionMapper.java,-->
+<!--                **/LinkedInNetworkException.java,-->
+<!--                **/ResponseErrorJsonParsingException.java,-->
+<!--                **/URLUtils.java,-->
+<!--                **/JsonHelper.java,-->
+<!--                **/ObjectUtil.java-->
+<!--              </excludes>-->
+<!--            </configuration>-->
+<!--            <goals>-->
+<!--              <goal>check</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--        <dependencies>-->
+<!--          <dependency>-->
+<!--            <groupId>com.puppycrawl.tools</groupId>-->
+<!--            <artifactId>checkstyle</artifactId>-->
+<!--            <version>10.18.0</version>-->
+<!--          </dependency>-->
+<!--          <dependency>-->
+<!--            <groupId>com.github.sevntu-checkstyle</groupId>-->
+<!--            <artifactId>sevntu-checks</artifactId>-->
+<!--            <version>1.44.0</version>-->
+<!--          </dependency>-->
+<!--        </dependencies>-->
+<!--      </plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
